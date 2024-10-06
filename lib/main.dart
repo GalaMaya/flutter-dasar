@@ -41,9 +41,18 @@ class FirstPage extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      body: const Center(
-        child: Text("Hello world"),
-      ),
+      body: Container(
+          decoration: const BoxDecoration(
+            color: Colors.blue,
+          ),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Icon(Icons.share),
+              Icon(Icons.thumb_up),
+              Icon(Icons.thumb_down),
+            ],
+          )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add),
