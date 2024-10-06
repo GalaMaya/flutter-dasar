@@ -10,62 +10,44 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Scaffold(
-          body: Center(
-        child: BiggerText(text: "Hello, Galuh"),
-      )),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const FirstPage());
   }
 }
 
-class Heading extends StatelessWidget {
-  final String text;
+class FirstPage extends StatelessWidget {
+  const FirstPage({Key? key}) : super(key: key);
 
-  const Heading({Key? key, required this.text}) : super(key: key);
-
-  @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: const TextStyle(
-        fontSize: 24.0,
-        fontWeight: FontWeight.bold,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Home"),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.search,
+                color: Colors.black,
+              ))
+        ],
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.black,
+          ),
+          onPressed: () {},
+        ),
       ),
-    );
-  }
-}
-
-class BiggerText extends StatefulWidget {
-  final String text;
-
-  const BiggerText({Key? key, required this.text}) : super(key: key);
-
-  @override
-  _BiggerTextState createState() => _BiggerTextState();
-}
-
-class _BiggerTextState extends State<BiggerText> {
-  double _textSize = 16.0;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(widget.text, style: TextStyle(fontSize: _textSize)),
-        ElevatedButton(
-          child: const Text("Perbesar"),
-          onPressed: () {
-            setState(() {
-              _textSize = 32.0;
-            });
-          },
-        )
-      ],
+      body: const Center(
+        child: Text("Hello world"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
